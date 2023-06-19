@@ -95,3 +95,11 @@ The Inventory Tracker application was developed as a programming school project.
 ## Future additions
 
 The addition of a UI
+
+## DEPLOYMENT
+I Created an account on HEROKU and configured it
+After I created it a new app. chose the name on lowercase and country
+I went to settings added. the CREDS into the vars field
+Added heroku python, node.js buildpacks
+then on the deploy tab I choose. the deployment metho and chosed github
+I deployed the app.
