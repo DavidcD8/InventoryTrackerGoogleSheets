@@ -19,6 +19,7 @@ class InventoryTracker:
  
         try:
             self.Stock = self.SHEET.worksheet('Stock')
+            
         except gspread.WorksheetNotFound as e:
             print("Worksheet 'Stock' not found in the 'inventory' document.")
             print("Available worksheet titles:")
