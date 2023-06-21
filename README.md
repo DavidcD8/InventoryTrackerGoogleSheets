@@ -103,3 +103,4 @@ I went to settings added. the CREDS into the vars field
 Added heroku python, node.js buildpacks
 then on the deploy tab I choose. the deployment metho and chosed github
 I deployed the app.
+https://inventory-tracker-app-725424cf8abe.herokuapp.com
