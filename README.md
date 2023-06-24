@@ -2,6 +2,7 @@
 # Inventory Tracker
 
 This is a Python code for an Inventory Tracker that uses Google Sheets to store and manage item data. The code provides functionality to connect to a Google Sheets document, create an inventory table, insert new items, search for items, update item quantities, restock items
+![picture of Website logo](program.png)
 
 ## Prerequisites
 

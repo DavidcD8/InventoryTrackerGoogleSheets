@@ -16,14 +16,14 @@ class InventoryTracker:
         GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
         self.SHEET = GSPREAD_CLIENT.open("inventory")  # Make SHEET an instance variable
         self.Stock = None
- 
+
         try:
             self.Stock = self.SHEET.worksheet('Stock')
-            
+
         except gspread.WorksheetNotFound as e:
             print("Worksheet 'Stock' not found in the 'inventory' document.")
             print("Available worksheet titles:")
-            worksheet_titles = SHEET.worksheet_titles()
+            worksheet_titles = self.SHEET.worksheet_titles()
             print(worksheet_titles)
             return
 
@@ -47,27 +47,23 @@ class InventoryTracker:
             except Exception as e:
                 print(f"Error occurred while adding item: {str(e)}")
 
-
     def retrieve_items(self, item_search):
         # Get all values from the worksheet
-        data = self.Stock.get_all_values()  # Use self.Stock instead of SHEET.worksheet
+        data = self.Stock.get_all_values()
         # Search for the item name in the first column (index 0) and print the matching names and quantities
         matching_items = [(row[0], row[1]) for row in data if item_search.lower() in row[0].lower()]
         if matching_items:
             print("Matching items:")
             for item_name, quantity in matching_items:
                 print(f"Item: {item_name}, Quantity: {quantity}")
-               
         else:
             print("No matching items found.")
-        
-    
-     
+
     def update_quantity(self, item_search, quantity_sold):
         # Update the quantity of an item in the inventory
         data = self.Stock.get_all_values()
         matching_items = [(row[0], row[1]) for row in data if item_search.lower() in row[0].lower()]
-        
+
         if len(matching_items) > 0:
             for item_name, quantity in matching_items:
                 transferred_item = item_name
@@ -79,7 +75,6 @@ class InventoryTracker:
                 print(f"Quantity updated for {transferred_item}: {transferred_quantity}")
         else:
             print("Item not found in the inventory.")
-
 
     def restock_item(self, item_model, additional_quantity):
         # Restock an item in the inventory
@@ -103,13 +98,20 @@ class InventoryTracker:
         # Item not found
         print("Item not found in the inventory.")
 
+    def remove_item(self, item_model):
+        # Remove an item from the inventory
+        data = self.Stock.get_all_values()
+        matching_items = [(row[0], row[1]) for row in data if item_model.lower() == row[0].lower()]
+
+        if len(matching_items) > 0:
+            for item_name, _ in matching_items:
+                cell = self.Stock.find(item_name)
+                self.Stock.delete_rows(cell.row)
+                print(f"Item '{item_name}' removed successfully.")
+        else:
+            print("Item not found in the inventory.")
 
 
-
-
-
-
- 
     def run(self):
         # Main loop for the inventory tracking application
         while True:
@@ -118,9 +120,10 @@ class InventoryTracker:
             print("2. Insert a new item")
             print("3. Update quantity")
             print("4. Restock item")
+            print("5. Remove item")
             print("0. Exit")
 
-            choice = int(input("Enter your choice (1, 2, 3, 4, or 0):\n "))
+            choice = int(input("Enter your choice (1, 2, 3, 4, 5, or 0):\n "))
             if choice == 1:
                 item_search = input("Enter the item model or shorthand code to search:\n ")
                 self.retrieve_items(item_search)
@@ -150,7 +153,11 @@ class InventoryTracker:
             elif choice == 4:
                 item_model = input("Enter the item model to restock:\n ")
                 additional_quantity = input("Enter the additional quantity to be added:\n ")
-                self.restock_item(item_model, additional_quantity)  # Remove quantity_sold argument
+                self.restock_item(item_model, additional_quantity)
+
+            elif choice == 5:
+                item_model = input("Enter the item model to remove:\n ")
+                self.remove_item(item_model)
 
             elif choice == 0:
                 print("Exiting the inventory tracking application.")
