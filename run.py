@@ -111,6 +111,16 @@ class InventoryTracker:
         else:
             print("Item not found in the inventory.")
 
+    def print_inventory(self):
+        # Print the entire list of items in the inventory
+        data = self.Stock.get_all_values()
+        if len(data) > 1:
+            print("Inventory List:")
+            for row in data[1:]:
+                item_name, quantity = row[0], row[1]
+                print(f"Item: {item_name}, Quantity: {quantity}")
+        else:
+            print("Inventory is empty.")
 
     def run(self):
         # Main loop for the inventory tracking application
@@ -121,48 +131,45 @@ class InventoryTracker:
             print("3. Update quantity")
             print("4. Restock item")
             print("5. Remove item")
+            print("6. Print inventory")
             print("0. Exit")
 
-            choice = int(input("Enter your choice (1, 2, 3, 4, 5, or 0):\n "))
+            choice = int(input("Enter your choice (1-6, or 0):\n"))
             if choice == 1:
-                item_search = input("Enter the item model or shorthand code to search:\n ")
+                item_search = input("Enter the item model or shorthand code to search:\n")
                 self.retrieve_items(item_search)
-
             elif choice == 2:
-                item_model = input("Enter item model:\n ")
+                item_model = input("Enter item model:\n")
                 while True:
-                    quantity = input("Enter initial quantity:\n ")
+                    quantity = input("Enter initial quantity:\n")
                     try:
                         quantity = int(quantity)
                         break
                     except ValueError:
                         print("Invalid quantity. Please enter a valid integer value.")
                 self.insert_item(item_model, quantity)
-
             elif choice == 3:
-                item_search = input("Enter the item model to update quantity:\n ")
+                item_search = input("Enter the item model to update quantity:\n")
                 while True:
-                    quantity_sold = input("Enter the quantity sold during the daily sale:\n ")
+                    quantity_sold = input("Enter the quantity sold during the daily sale:\n")
                     try:
                         quantity_sold = int(quantity_sold)
                         break
                     except ValueError:
                         print("Invalid quantity. Please enter a valid integer value.")
                 self.update_quantity(item_search, quantity_sold)
-
             elif choice == 4:
-                item_model = input("Enter the item model to restock:\n ")
-                additional_quantity = input("Enter the additional quantity to be added:\n ")
+                item_model = input("Enter the item model to restock:\n")
+                additional_quantity = input("Enter the additional quantity to be added:\n")
                 self.restock_item(item_model, additional_quantity)
-
             elif choice == 5:
-                item_model = input("Enter the item model to remove:\n ")
+                item_model = input("Enter the item model to remove:\n")
                 self.remove_item(item_model)
-
+            elif choice == 6:
+                self.print_inventory()
             elif choice == 0:
                 print("Exiting the inventory tracking application.")
                 break
-
             else:
                 print("Invalid choice. Please try again.")
 
