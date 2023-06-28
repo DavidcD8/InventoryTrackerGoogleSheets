@@ -79,9 +79,8 @@ class InventoryTracker:
                 item_data = [[transferred_item, str(transferred_quantity)]]
                 cell = self.stock.find(transferred_item)
                 self.stock.update(cell.address, item_data)
-                print(
-                    f"Quantity updated for" +
-                    "{transferred_item}: {transferred_quantity}")
+                print(f"Updated:{transferred_quantity} for {transferred_item}")
+
         else:
             print("Item not found in the inventory.")
 
