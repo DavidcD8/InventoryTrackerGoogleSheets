@@ -140,11 +140,12 @@ The inventory is stored in a Google Sheets document with the following columns:
 ## Note
 
 - When searching for an item, you can enter either the item model or a shorthand code. The application will return matching items based on the input.
-- When inserting a new item, the application will automatically generate a unique stock number for the item.
+
 
 ## Issues Found
 
 The `Restock` method was not finding the items. The code should have been using `get_all_values()` instead of `get_all_records()`.
+I found a issue while removing the item from the list. it was removing any item that had a quantity of one.
 
 ## Acknowledgements
 
