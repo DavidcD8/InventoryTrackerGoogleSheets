@@ -98,7 +98,7 @@ Enter the additional quantity to be added: 10
 Item restocked successfully.
 Matching items:
 Item: Laptop, Quantity: 13
-
+![picture of Website logo](restock.png)
 Choose an operation:
 1. Search for an item
 2. Insert a new item
@@ -111,7 +111,7 @@ Choose an operation:
 Enter your choice (1-6, or 0): 5
 Enter the item model to remove: Laptop
 Item 'Laptop' removed successfully.
-
+![picture of Website logo](remove.png)
 Choose an operation:
 1. Search for an item
 2. Insert a new item
@@ -123,8 +123,7 @@ Choose an operation:
 
 Enter your choice (1-6, or 0): 6
 Inventory List:
-Inventory is empty.
-
+![picture of Website logo](print.png)
 Choose an operation:
 1. Search for an item
 2. Insert a new item
@@ -136,7 +135,7 @@ Choose an operation:
 
 Enter your choice (1-6, or 0): 0
 Exiting the inventory tracking application.
-
+![picture of Website logo](exit.png)
 ## Database Structure
 
 The inventory is stored in a Google Sheets document with the following columns:
