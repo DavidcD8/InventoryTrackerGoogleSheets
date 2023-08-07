@@ -2,7 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 
-  def get_gspread_client():
+def get_gspread_client():
     # Connect to Google Sheets API
     SCOPE = [
         "https://www.googleapis.com/auth/spreadsheets",
@@ -18,7 +18,7 @@ from google.oauth2.service_account import Credentials
   
  
 
-    def item_exists(self, item_model):
+def item_exists(self, item_model):
         # Check if an item already exists in the inventory
         items = self.stock.get_all_records()
         return any(
@@ -26,7 +26,8 @@ from google.oauth2.service_account import Credentials
             for item in items
         )
 
-    def insert_item(self, item_model, quantity):
+
+def insert_item(self, item_model, quantity):
         # Insert a new item into the inventory
         if self.item_exists(item_model):
             print("Item already exists in the inventory.")
@@ -38,7 +39,8 @@ from google.oauth2.service_account import Credentials
             except Exception as e:
                 print(f"Error occurred while adding item: {str(e)}")
 
-    def retrieve_items(self, item_search):
+
+def retrieve_items(self, item_search):
         # Get all values from the worksheet
         data = self.stock.get_all_values()
         '''Search for the item name in the first column
@@ -53,7 +55,8 @@ from google.oauth2.service_account import Credentials
         else:
             print("No matching items found.")
 
-    def update_quantity(self, item_search, quantity_sold):
+
+def update_quantity(self, item_search, quantity_sold):
         # Update the quantity of an item in the inventory
         data = self.stock.get_all_values()
         matching_items = [(row[0], row[1])
@@ -74,7 +77,7 @@ from google.oauth2.service_account import Credentials
         else:
             print("Item not found in the inventory.")
 
-    def restock_item(self, item_model, additional_quantity):
+def restock_item(self, item_model, additional_quantity):
         # Restock an item in the inventory
         try:
             additional_quantity = int(additional_quantity)
@@ -98,7 +101,8 @@ from google.oauth2.service_account import Credentials
         # Item not found
         print("Item not found in the inventory.")
 
-    def remove_item(self, item_model):
+
+def remove_item(self, item_model):
         # Remove an item from the inventory
         data = self.stock.get_all_values()
         matching_items = [(row[0], row[1])
@@ -113,7 +117,8 @@ from google.oauth2.service_account import Credentials
         else:
             print("Item not found in the inventory.")
 
-    def print_inventory(self):
+
+def print_inventory(self):
         # Print the entire list of items in the inventory
         data = self.stock.get_all_values()
         if len(data) > 1:
@@ -124,7 +129,8 @@ from google.oauth2.service_account import Credentials
         else:
             print("Inventory is empty.")
 
-    def run(self):
+
+def run(self):
         # Main loop for the inventory tracking application
         while True:
             print("Choose an operation:")
