@@ -135,20 +135,24 @@ def restock_item(sheet, item_model, additional_quantity):
     print("Item not found in the inventory.")
 
 
-def remove_item(self, item_model):
-        # Remove an item from the inventory
-        data = self.stock.get_all_values()
-        matching_items = [(row[0], row[1])
-                          for row in data if item_model.lower()
-                          == row[0].lower()]
+def remove_item(sheet, item_model):
+    # Remove an item from the inventory
+    item_model = item_model.strip()  # Remove leading/trailing spaces
 
-        if len(matching_items) > 0:
-            for item_name, _ in matching_items:
-                cell = self.stock.find(item_name)
-                self.stock.delete_rows(cell.row)
-                print(f"Item '{item_name}' removed successfully.")
-        else:
-            print("Item not found in the inventory.")
+    if not item_model:
+        print("Invalid item model. Please enter a non-empty item model.")
+        return
+
+    data = sheet.get_all_values()
+    matching_items = [(row[0], row[1]) for row in data if item_model.lower() == row[0].lower()]
+
+    if len(matching_items) > 0:
+        for item_name, _ in matching_items:
+            cell = sheet.find(item_name)
+            sheet.delete_rows(cell.row)
+            print(f"Item '{item_name}' removed successfully.")
+    else:
+        print("Item not found in the inventory.")
 
 
 def print_inventory(self):
