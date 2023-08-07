@@ -68,6 +68,55 @@ Enter your choice (1-6, or 0): 0
 Exiting the inventory tracking application.
 ![picture of Website logo](exit.png)
 
+## Testing Steps/Guidelines
+Before testing the application, ensure that you have completed the prerequisites and have set up the Google Sheets document with the correct structure.
+
+## Connect to the Spreadsheet:
+
+Verify that the application connects to the Google Sheets document named "inventory" successfully.
+Check for any connection errors and ensure the main menu is displayed after successful connection.
+
+## Insert a New Item:
+
+Verify that you can add a new item to the inventory with a valid item model and positive integer quantity.
+Check that the program provides appropriate feedback for empty or invalid data entry.
+Check the Google Sheets document to ensure the new item and quantity have been added correctly.
+
+## Search for an Item:
+
+Verify that the application can search for an existing item by its name or shorthand code.
+Check that the program provides informative messages when the item is not found or when the search input is empty.
+Update Quantity:
+
+Verify that the application can update the quantity of an existing item based on the quantity sold during the daily sale.
+Check that the program handles invalid data entry, such as non-integer quantities.
+Check the Google Sheets document to ensure the quantity is updated correctly.
+
+## Restock Item:
+
+Verify that you can restock an existing item with an additional quantity.
+Check that the program handles invalid data entry, such as non-integer quantities.
+Check the Google Sheets document to ensure the item has been restocked correctly.
+
+## Remove Item:
+
+Verify that you can remove an existing item from the inventory.
+Check that the program provides confirmation messages before proceeding with the removal.
+Check the Google Sheets document to ensure the item has been removed correctly.
+
+## Print Inventory:
+
+Verify that the application can print the entire inventory with item names and quantities.
+Check that the program provides informative messages if the inventory is empty.
+
+## Invalid Inputs:
+
+Test the program with various invalid inputs, such as providing an empty item model, non-integer quantities, and incorrect item names.
+Verify that the application handles such inputs gracefully and displays appropriate error messages.
+
+## Exit the Application:
+
+Verify that the application can be terminated gracefully without any errors.
 
 
 ## Database Structure
