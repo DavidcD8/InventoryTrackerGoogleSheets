@@ -192,6 +192,16 @@ def run(self):
 
 
 if __name__ == "__main__":
-    # Create an instance of the InventoryTracker class and run the application
-    tracker = InventoryTracker()
-    tracker.run()
+    GSPREAD_CLIENT = get_gspread_client()
+    SHEET = GSPREAD_CLIENT.open("inventory")
+    stock = None
+
+    try:
+        stock = SHEET.worksheet('stock')
+    except gspread.WorksheetNotFound as e:
+        print("Worksheet 'stock' not found in the 'inventory' document.")
+        print("Available worksheet titles:")
+        worksheet_titles = SHEET.worksheet_titles()
+        print(worksheet_titles)
+
+    run()
