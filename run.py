@@ -2,31 +2,21 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 
-class InventoryTracker:
-    def __init__(self):
-        # Connect to Google Sheets API
-        SCOPE = [
-            "https://www.googleapis.com/auth/spreadsheets",
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/drive"
-        ]
+  def get_gspread_client():
+    # Connect to Google Sheets API
+    SCOPE = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/drive"
+    ]
 
-        CREDS = Credentials.from_service_account_file('creds.json')
-        SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-        GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-        # Make SHEET an instance variable
-        self.SHEET = GSPREAD_CLIENT.open("inventory")
-        self.stock = None
+    CREDS = Credentials.from_service_account_file('credentials.json')
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+    return GSPREAD_CLIENT
 
-        try:
-            self.stock = self.SHEET.worksheet('stock')
-
-        except gspread.WorksheetNotFound as e:
-            print("Worksheet 'stock' not found in the 'inventory' document.")
-            print("Available worksheet titles:")
-            worksheet_titles = self.SHEET.worksheet_titles()
-            print(worksheet_titles)
-            return
+  
+ 
 
     def item_exists(self, item_model):
         # Check if an item already exists in the inventory
