@@ -103,29 +103,36 @@ def update_quantity(sheet, item_search, quantity_sold):
         print("Item not found in the inventory.")
         return None, None
 
-def restock_item(self, item_model, additional_quantity):
-        # Restock an item in the inventory
-        try:
-            additional_quantity = int(additional_quantity)
-        except ValueError:
-            print("Invalid additional quantity." +
-                  "Please enter a valid integer value.")
+
+
+def restock_item(sheet, item_model, additional_quantity):
+    # Restock an item in the inventory
+    item_model = item_model.strip()  # Remove leading/trailing spaces
+
+    if not item_model:
+        print("Invalid item model. Please enter a non-empty item model.")
+        return
+
+    try:
+        additional_quantity = int(additional_quantity)
+    except ValueError:
+        print("Invalid additional quantity. Please enter a valid integer value.")
+        return
+
+    data = sheet.get_all_values()
+    # Start from index 1 to skip the header row
+    for index, row in enumerate(data[1:], start=2):
+        if row[0] == item_model:
+            current_quantity = int(row[1])
+            new_quantity = current_quantity + additional_quantity
+            row_number = index
+            cell_range = f"B{row_number}"
+            sheet.update(cell_range, str(new_quantity))
+            print("Item restocked successfully.")
             return
 
-        data = self.stock.get_all_values()
-        # Start from index 1 to skip the header row
-        for index, row in enumerate(data[1:], start=2):
-            if row[0] == item_model:
-                current_quantity = int(row[1])
-                new_quantity = current_quantity + additional_quantity
-                row_number = index
-                cell_range = f"B{row_number}"
-                self.stock.update(cell_range, str(new_quantity))
-                print("Item restocked successfully.")
-                return
-
-        # Item not found
-        print("Item not found in the inventory.")
+    # Item not found
+    print("Item not found in the inventory.")
 
 
 def remove_item(self, item_model):
