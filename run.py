@@ -69,26 +69,49 @@ def retrieve_items(self, item_search):
             print("No matching items found.")
 
 
-def update_quantity(self, item_search, quantity_sold):
-        # Update the quantity of an item in the inventory
-        data = self.stock.get_all_values()
-        matching_items = [(row[0], row[1])
-                          for row in data if
-                          item_search.lower() in row[0].lower()]
+def update_quantity(sheet, item_search, quantity_sold):
+    # Update the quantity of an item in the inventory
+    data = sheet.get_all_values()
+    matching_items = [(row[0], row[1]) for row in data if item_search.lower() in row[0].lower()]
 
-        if len(matching_items) > 0:
-            for item_name, quantity in matching_items:
-                transferred_item = item_name
-                transferred_quantity = int(quantity)
-                transferred_quantity -= quantity_sold
-                # Make item_data a 2D list
-                item_data = [[transferred_item, str(transferred_quantity)]]
-                cell = self.stock.find(transferred_item)
-                self.stock.update(cell.address, item_data)
-                print(f"Updated:{transferred_quantity} for {transferred_item}")
+    if not item_search:
+        print("Invalid item model. Please enter a non-empty item model.")
+        return None, None
 
+    if not is_valid_quantity(quantity_sold):
+        print("Invalid quantity. Please enter a valid non-negative integer.")
+        return None, None
+
+    quantity_sold = int(quantity_sold)  # Convert quantity_sold to an integer
+
+    if len(matching_items) > 0:
+        for item_name, quantity in matching_items:
+            transferred_item = item_name
+            transferred_quantity = int(quantity)
+            transferred_quantity -= quantity_sold
+            # Make item_data a 2D list
+            item_data = [[transferred_quantity]]
+            cell = sheet.find(transferred_item)
+            sheet.update_cell(cell.row, cell.col + 1, transferred_quantity)
+
+        # Get the updated quantity from the sheet
+        updated_data = sheet.get_all_values()
+        updated_quantity = None
+        for row in updated_data:
+            if transferred_item.lower() == row[0].lower():
+                updated_quantity = int(row[1])
+                break
+
+        if updated_quantity is not None:
+            print(f"Updated: {quantity_sold} for {transferred_item}. Quantity left: {updated_quantity}")
+            return transferred_item, updated_quantity
         else:
-            print("Item not found in the inventory.")
+            print("Failed to get updated quantity.")
+            return None, None
+
+    else:
+        print("Item not found in the inventory.")
+        return None, None
 
 def restock_item(self, item_model, additional_quantity):
         # Restock an item in the inventory
