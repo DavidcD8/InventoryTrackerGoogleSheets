@@ -132,12 +132,12 @@ The inventory is stored in a Google Sheets document with the following columns:
 - The code was truncated in a way that caused the application to break with an error. The issue was fixed by changing the print statement in the code.
 
 
-# Acknowledgements
+## Acknowledgements
 The Inventory Tracker application was developed as a programming school project. We would like to acknowledge the following sources that contributed to the development of this project:
+- Stack Overflow for providing guidance on input validation.
+- Google Sheets API for enabling the interaction with the Google Sheets document.
+- Continuous Integration (CI) for providing valuable feedback on the code.
 
-Stack Overflow for providing guidance on input validation.
-Google Sheets API for enabling the interaction with the Google Sheets document.
-Continuous Integration (CI) for providing valuable feedback on the code.
 
 # Future Additions
 
