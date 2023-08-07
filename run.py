@@ -43,22 +43,6 @@ def retrieve_items(sheet, item_search):
         print("No matching items found.")
 
 
-def retrieve_items(self, item_search):
-        # Get all values from the worksheet
-        data = self.stock.get_all_values()
-        '''Search for the item name in the first column
-        (index 0) and print the matching names and quantities '''
-        matching_items = [(row[0], row[1])
-                          for row in data if
-                          item_search.lower() in row[0].lower()]
-        if matching_items:
-            print("Matching items:")
-            for item_name, quantity in matching_items:
-                print(f"Item: {item_name}, Quantity: {quantity}")
-        else:
-            print("No matching items found.")
-
-
 def update_quantity(sheet, item_search, quantity_sold):
     # Update the quantity of an item in the inventory
     data = sheet.get_all_values()
@@ -155,16 +139,16 @@ def remove_item(sheet, item_model):
         print("Item not found in the inventory.")
 
 
-def print_inventory(self):
-        # Print the entire list of items in the inventory
-        data = self.stock.get_all_values()
-        if len(data) > 1:
-            print("Inventory List:")
-            for row in data[1:]:
-                item_name, quantity = row[0], row[1]
-                print(f"Item: {item_name}, Quantity: {quantity}")
-        else:
-            print("Inventory is empty.")
+def print_inventory(sheet):
+    # Print the entire list of items in the inventory
+    data = sheet.get_all_values()
+    if len(data) > 1:
+        print("Inventory List:")
+        for row in data[1:]:
+            item_name, quantity = row[0], row[1]
+            print(f"Item: {item_name}, Quantity: {quantity}")
+    else:
+        print("Inventory is empty.")
 
 
 def run(self):
