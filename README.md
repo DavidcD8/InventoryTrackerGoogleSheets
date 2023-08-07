@@ -130,6 +130,7 @@ The inventory is stored in a Google Sheets document with the following columns:
 - The `Restock` method was not finding the items. The code should have been using `get_all_values()` instead of `get_all_records()`.
 - An issue was found while removing the item from the list. It was removing any item that had a quantity of one.
 - The code was truncated in a way that caused the application to break with an error. The issue was fixed by changing the print statement in the code.
+- The program was allowing duplicate. The issue was fixed by replacing the item_exists function for is_valid_quantity
 
 
 ## Acknowledgements
