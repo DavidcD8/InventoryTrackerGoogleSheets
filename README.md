@@ -160,4 +160,6 @@ The addition of a UI.
 ## DEPLOYMENT
 The project has been successfully deployed to Heroku. You can access the deployed application at the following link: [Inventory Tracker App](https://inventory-tracker-app-725424cf8abe.herokuapp.com)
 
+## Version Control (Git)
+The project has been version controlled using Git. Commits have been made at appropriate intervals, and commit messages have been improved to provide descriptive information about each change made.
 
