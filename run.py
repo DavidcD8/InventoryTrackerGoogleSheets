@@ -24,30 +24,23 @@ def is_valid_quantity(quantity):
         return False
 
 
-def insert_item(sheet, item_model, quantity):
-    # Insert a new item into the inventory
-    item_model = item_model.strip()  # Remove leading/trailing spaces
+def retrieve_items(sheet, item_search):
+    # Get all values from the worksheet
+    data = sheet.get_all_values()
+    matching_items = [(row[0], row[1])
+                      for row in data if
+                      item_search.lower() in row[0].lower()]
 
-    if not item_model:
+    if not item_search:
         print("Invalid item model. Please enter a non-empty item model.")
         return
 
-    if not is_valid_quantity(quantity):
-        print("Invalid quantity. Please enter a valid non-negative integer.")
-        return
-
-    try:
-        # Try to find the item_model in the first column (index 1)
-        cell = sheet.find(item_model, in_column=1)
-        print("Item already exists in the inventory.")
-    except gspread.exceptions.CellNotFound:
-        # The item_model was not found, so it doesn't exist in the inventory
-        row = [item_model, quantity]
-        try:
-            sheet.append_row(row)
-            print("Item added successfully.")
-        except Exception as e:
-            print(f"Error occurred while adding item: {str(e)}")
+    if matching_items:
+        print("Matching items:")
+        for item_name, quantity in matching_items:
+            print(f"Item: {item_name}, Quantity: {quantity}")
+    else:
+        print("No matching items found.")
 
 
 def retrieve_items(self, item_search):
