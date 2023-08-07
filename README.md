@@ -148,7 +148,7 @@ The addition of a UI.
  if len(item_model) < 3:
                     print("Can not be less than 3 ")
 
-- google: sheet API 
+- Google Sheets API 
 - CI : SCOPE = [
             "https://www.googleapis.com/auth/spreadsheets",
             "https://www.googleapis.com/auth/drive.file",
@@ -158,10 +158,6 @@ The addition of a UI.
 - data = self.stock.get_all_values()
 
 ## DEPLOYMENT
-I Created an account on HEROKU and configured it
-After I created it a new app. chose the name on lowercase and country
-I went to settings added. the CREDS into the vars field
-Added heroku python, node.js buildpacks
-then on the deploy tab I choose. the deployment metho and chosed github
-I deployed the app.
-https://inventory-tracker-app-725424cf8abe.herokuapp.com
+The project has been successfully deployed to Heroku. You can access the deployed application at the following link: [Inventory Tracker App](https://inventory-tracker-app-725424cf8abe.herokuapp.com)
+
+
