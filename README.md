@@ -17,11 +17,10 @@ Before running the code, ensure that you have the following:
 
 ## Getting Started
 
-1. Make sure you have a Google Sheets document created for your inventory.
-2. Create a service account and download the service account key file (JSON format) from the Google Cloud Console.
-3. Rename the service account key file to `credentials.json` and place it in the same directory as the Python script.
-4. Open the `inventory_tracker.py` file.
-5. Run the Python script using `python inventory_tracker.py`.
+- Clone the repository or download the inventory_tracker.py file.
+- Rename the service account key file to credentials.json and place it in the same directory as the Python script.
+- Install the required Python packages by running pip install gspread google-auth.
+- Open the terminal and run the Python script using python inventory_tracker.py.
 
 ## Usage
 ![picture of Website logo](program.png)
