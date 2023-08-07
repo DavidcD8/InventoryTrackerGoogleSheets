@@ -14,17 +14,14 @@ def get_gspread_client():
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
     return GSPREAD_CLIENT
-
-  
  
 
-def item_exists(self, item_model):
-        # Check if an item already exists in the inventory
-        items = self.stock.get_all_records()
-        return any(
-            item.get("item_model") == item_model
-            for item in items
-        )
+def is_valid_quantity(quantity):
+    try:
+        quantity = int(quantity)
+        return quantity >= 0
+    except ValueError:
+        return False
 
 
 def insert_item(sheet, item_model, quantity):
