@@ -23,10 +23,10 @@ Before running the code, ensure that you have the following:
 - Open the terminal and run the Python script using python inventory_tracker.py.
 
 ## Usage
-![picture of Website logo](program.png)
+ 
 
 Upon running the code, the program will display a menu with the following options:
-
+ 
 1. Search for an item
 2. Insert a new item
 3. Update quantity
@@ -53,78 +53,8 @@ Matching items:
 Item: Laptop, Quantity: 5
 ![picture of Website logo](search.png)
 
+...
 
-Choose an operation:
-1. Search for an item
-2. Insert a new item
-3. Update quantity
-4. Restock item
-5. Remove item
-6. Print inventory
-0. Exit
-
-Enter your choice (1-6, or 0): 2
-Enter item model: Laptop
-Enter initial quantity: 5
-Item added successfully.
-![picture of Website logo](add.png)
-
-Choose an operation:
-1. Search for an item
-2. Insert a new item
-3. Update quantity
-4. Restock item
-5. Remove item
-6. Print inventory
-0. Exit
-
-Enter your choice (1-6, or 0): 3
-Enter the item model to update quantity: Laptop
-Enter the quantity sold during the daily sale: 2
-Quantity updated for Laptop: 3
-![picture of Website logo](update.png)
-
-Choose an operation:
-1. Search for an item
-2. Insert a new item
-3. Update quantity
-4. Restock item
-5. Remove item
-6. Print inventory
-0. Exit
-
-Enter your choice (1-6, or 0): 4
-Enter the item model to restock: Laptop
-Enter the additional quantity to be added: 10
-Item restocked successfully.
-Matching items:
-Item: Laptop, Quantity: 13
-![picture of Website logo](restock.png)
-Choose an operation:
-1. Search for an item
-2. Insert a new item
-3. Update quantity
-4. Restock item
-5. Remove item
-6. Print inventory
-0. Exit
-
-Enter your choice (1-6, or 0): 5
-Enter the item model to remove: Laptop
-Item 'Laptop' removed successfully.
-![picture of Website logo](remove.png)
-Choose an operation:
-1. Search for an item
-2. Insert a new item
-3. Update quantity
-4. Restock item
-5. Remove item
-6. Print inventory
-0. Exit
-
-Enter your choice (1-6, or 0): 6
-Inventory List:
-![picture of Website logo](print.png)
 Choose an operation:
 1. Search for an item
 2. Insert a new item
@@ -137,6 +67,9 @@ Choose an operation:
 Enter your choice (1-6, or 0): 0
 Exiting the inventory tracking application.
 ![picture of Website logo](exit.png)
+
+
+
 ## Database Structure
 
 The inventory is stored in a Google Sheets document with the following columns:
