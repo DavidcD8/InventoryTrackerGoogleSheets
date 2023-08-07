@@ -12,6 +12,8 @@ Before running the code, ensure that you have the following:
 
 - Python 3.x installed on your system.
 - The necessary Python packages installed, including `gspread` and `google-auth`.
+- A Google Sheets document created for your inventory.
+- A service account with a service account key file (JSON format) obtained from the Googe Cloud Console
 
 ## Getting Started
 
