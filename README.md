@@ -86,40 +86,41 @@ Check the Google Sheets document to ensure the new item and quantity have been a
 
 Verify that the application can search for an existing item by its name or shorthand code.
 Check that the program provides informative messages when the item is not found or when the search input is empty.
-Update Quantity:
+
+4. Update Quantity:
 
 Verify that the application can update the quantity of an existing item based on the quantity sold during the daily sale.
 Check that the program handles invalid data entry, such as non-integer quantities.
 Check the Google Sheets document to ensure the quantity is updated correctly.
 
-4. Restock Item:
+5. Restock Item:
 
 Verify that you can restock an existing item with an additional quantity.
 Check that the program handles invalid data entry, such as non-integer quantities.
 Check the Google Sheets document to ensure the item has been restocked correctly.
 
-5. Remove Item:
+6. Remove Item:
 
 Verify that you can remove an existing item from the inventory.
 Check that the program provides confirmation messages before proceeding with the removal.
 Check the Google Sheets document to ensure the item has been removed correctly.
 
-6. Print Inventory:
+7. Print Inventory:
 
 Verify that the application can print the entire inventory with item names and quantities.
 Check that the program provides informative messages if the inventory is empty.
 
-7. Invalid Inputs:
+8. Invalid Inputs:
 
 Test the program with various invalid inputs, such as providing an empty item model, non-integer quantities, and incorrect item names.
 Verify that the application handles such inputs gracefully and displays appropriate error messages.
 
-8. Exit the Application:
+9. Exit the Application:
 
 Verify that the application can be terminated gracefully without any errors.
 
 
-9. Database Structure
+10. Database Structure
 
 The inventory is stored in a Google Sheets document with the following columns:
 - Item Model
@@ -135,6 +136,7 @@ The inventory is stored in a Google Sheets document with the following columns:
 
 ## Acknowledgements
 The Inventory Tracker application was developed as a programming school project. We would like to acknowledge the following sources that contributed to the development of this project:
+
 - Stack Overflow for providing guidance on input validation.
 - Google Sheets API for enabling the interaction with the Google Sheets document.
 - Continuous Integration (CI) for providing valuable feedback on the code.
