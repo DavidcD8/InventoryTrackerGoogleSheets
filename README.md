@@ -102,7 +102,6 @@ Check the Google Sheets document to ensure the item has been restocked correctly
 6. Remove Item:
 
 Verify that you can remove an existing item from the inventory.
-Check that the program provides confirmation messages before proceeding with the removal.
 Check the Google Sheets document to ensure the item has been removed correctly.
 
 7. Print Inventory:
