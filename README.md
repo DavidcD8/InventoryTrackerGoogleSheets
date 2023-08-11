@@ -125,15 +125,22 @@ The inventory is stored in a Google Sheets document with the following columns:
 - Item Model
 - Quantity
 
- 
-## Issues Found and Fixes
+# pep8 Validator 
+-I used the https://pep8ci.herokuapp.com App and made sure it contains zero erros 
+## Before
+![Screenshot 2023-08-11 184704](https://github.com/DavidcD8/InventoryTrackerGoogleSheets/assets/91196677/2791fe77-cfd4-4137-89d8-87f38848d1dd)
+
+## After
+ ![Screenshot 2023-08-11 190107](https://github.com/DavidcD8/InventoryTrackerGoogleSheets/assets/91196677/403aed10-8219-480b-8f9e-c0e2e882c120)
+
+# Issues Found and Fixes
 - The `Restock` method was not finding the items. The code should have been using `get_all_values()` instead of `get_all_records()`.
 - An issue was found while removing the item from the list. It was removing any item that had a quantity of one.
 - The code was truncated in a way that caused the application to break with an error. The issue was fixed by changing the print statement in the code.
 - The program was allowing duplicate. The issue was fixed by replacing the item_exists function for is_valid_quantity
 
 
-## Acknowledgements
+# Acknowledgements
 The Inventory Tracker application was developed as a programming school project. We would like to acknowledge the following sources that contributed to the development of this project:
 
 - Stack Overflow for providing guidance on input validation.
@@ -145,7 +152,7 @@ The Inventory Tracker application was developed as a programming school project.
 
 The addition of a UI.
 
-## Credit
+# Credit
 - https://stackoverflow.com/questions/41684523/how-can-i-add-validation-for-input-length-of-a-string
  if len(item_model) < 3:
                     print("Can not be less than 3 ")
@@ -159,9 +166,9 @@ The addition of a UI.
 - https://python-forum.io/thread-28805.html
 - data = self.stock.get_all_values()
 
-## DEPLOYMENT
+# DEPLOYMENT
 The project has been successfully deployed to Heroku. You can access the deployed application at the following link: [Inventory Tracker App](https://inventory-tracker-app-725424cf8abe.herokuapp.com)
 
-## Version Control (Git)
+# Version Control (Git)
 The project has been version controlled using Git. Commits have been made at appropriate intervals, and commit messages have been improved to provide descriptive information about each change made.
 
