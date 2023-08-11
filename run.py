@@ -14,7 +14,7 @@ def get_gspread_client():
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
     return GSPREAD_CLIENT
- 
+
 
 def is_valid_quantity(quantity):
     try:
@@ -72,7 +72,8 @@ def retrieve_items(sheet, item_search):
 def update_quantity(sheet, item_search, quantity_sold):
     # Update the quantity of an item in the inventory
     data = sheet.get_all_values()
-    matching_items = [(row[0], row[1]) for row in data if item_search.lower() in row[0].lower()]
+    matching_items = [(row[0], row[1])
+                      for row in data if item_search.lower() in row[0].lower()]
 
     if not item_search:
         print("Invalid item model. Please enter a non-empty item model.")
@@ -103,7 +104,9 @@ def update_quantity(sheet, item_search, quantity_sold):
                 break
 
         if updated_quantity is not None:
-            print(f"Updated: {quantity_sold} for {transferred_item}. Quantity left: {updated_quantity}")
+            print(
+                f"Updated: {quantity_sold} for {transferred_item}." +
+                "Quantity left: {updated_quantity}")
             return transferred_item, updated_quantity
         else:
             print("Failed to get updated quantity.")
@@ -112,7 +115,6 @@ def update_quantity(sheet, item_search, quantity_sold):
     else:
         print("Item not found in the inventory.")
         return None, None
-
 
 
 def restock_item(sheet, item_model, additional_quantity):
@@ -126,7 +128,8 @@ def restock_item(sheet, item_model, additional_quantity):
     try:
         additional_quantity = int(additional_quantity)
     except ValueError:
-        print("Invalid additional quantity. Please enter a valid integer value.")
+        print("Invalid additional quantity." +
+              "Please enter a valid integer value.")
         return
 
     data = sheet.get_all_values()
@@ -154,7 +157,8 @@ def remove_item(sheet, item_model):
         return
 
     data = sheet.get_all_values()
-    matching_items = [(row[0], row[1]) for row in data if item_model.lower() == row[0].lower()]
+    matching_items = [(row[0], row[1])
+                      for row in data if item_model.lower() == row[0].lower()]
 
     if len(matching_items) > 0:
         for item_name, _ in matching_items:
@@ -192,19 +196,23 @@ def run():
         choice = input("Enter your choice (1-6, or 0):\n")
 
         if choice == "1":
-            item_search = input("Enter the item model or shorthand code to search:\n")
+            item_search = input(
+                "Enter the item model or shorthand code to search:\n")
             retrieve_items(stock, item_search)
         elif choice == "2":
             item_model = input("Enter item model:\n")
             quantity = input("Enter initial quantity:\n")
             insert_item(stock, item_model, quantity)
         elif choice == "3":
-            item_search = input("Enter the item model to update quantity:\n").strip()
-            quantity_sold = input("Enter the quantity sold during the daily sale:\n")
+            item_search = input(
+                "Enter the item model to update quantity:\n").strip()
+            quantity_sold = input(
+                "Enter the quantity sold during the daily sale:\n")
             update_quantity(stock, item_search, quantity_sold)
         elif choice == "4":
             item_model = input("Enter the item model to restock:\n")
-            additional_quantity = input("Enter the additional quantity to be added:\n")
+            additional_quantity = input(
+                "Enter the additional quantity to be added:\n")
             restock_item(stock, item_model, additional_quantity)
         elif choice == "5":
             item_model = input("Enter the item model to remove:\n")
