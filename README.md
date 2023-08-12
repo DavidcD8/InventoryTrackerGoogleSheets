@@ -162,6 +162,51 @@ The inventory is stored in a Google Sheets document with the following columns:
 - Item Model
 - Quantity
 
+ 
+
+## Manual Testing Steps
+ 
+These are the steps that I took to test the each functionality of the application
+
+1. **Search for an Item:**
+   - I chose option 1.
+   - Entered an item model or shorthand code to search for.
+   - The script retrieved and displayed any matching items along with their quantities.
+
+2. **Insert a New Item:**
+   - I chose option 2.
+   - Entered an item model and an initial quantity.
+   - The script added the new item to the inventory and printed Item added successfully.
+
+3. **Update Quantity:**
+   - I chose option 3.
+   - I Entered an item model to update the quantity for.
+   - I Entered the quantity sold during the daily sale.
+   - The script updated the quantity of the specified item.
+     
+4. **Restock Item:**
+   - Chose option 4.
+   - I Entered the item model to restock.
+   - I Entered the additional quantity to be added.
+   - The script increased the quantity of the specified item.
+
+5. **Remove Item:**
+   - I Chosed option 5.
+   - I Entered an item model to remove.
+   - The script removed the specified item from the inventory.
+
+6 **Print Inventory:**
+   - Choose option 6.
+   - The script displayed a list of all items in the inventory along with their quantities.
+   
+7. **Exit:**
+   - Choose option 0 to exit the script.
+  
+8. **Invalid Inputs:**
+   - Test providing invalid inputs like an empty item model or non-integer quantities.
+   - The script should handle these cases gracefully and provide appropriate error messages.
+
+
 # pep8 Validator 
 -I used the https://pep8ci.herokuapp.com App and made sure it contains zero erros 
 ## Before
