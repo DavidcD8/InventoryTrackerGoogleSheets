@@ -22,6 +22,43 @@ Before running the code, ensure that you have the following:
 - Install the required Python packages by running pip install gspread google-auth.
 - Open the terminal and run the Python script using python inventory_tracker.py.
 
+
+# Inventory Management System Features:
+
+- Search Functionality:
+
+Allow users to search for items within the inventory. Provide search results based on item names, 
+Enhance user experience by displaying accurate and relevant search results.
+
+- Insertion of New Items:
+
+Enable users to add new items to the inventory system.
+Validate input data to ensure accurate and consistent information entry.
+
+- Quantity Update:
+
+Provide the ability to update the quantity of existing items.
+Implement validation to prevent negative quantities or other unrealistic changes.
+
+- Restocking Functionality:
+
+Allow users to initiate a restock for specific items.
+Prompt users to input restock quantities and update inventory accordingly.
+
+
+- Item Removal:
+
+Enable users to remove items from the inventory.
+
+- Inventory Printing:
+
+Allow users to generate and print inventory reports.
+ 
+
+
+
+
+
 ## Usage
  
 
