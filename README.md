@@ -249,7 +249,7 @@ The addition of a UI.
 - data = self.stock.get_all_values()
 
 # DEPLOYMENT
-The project has been successfully deployed to Heroku. You can access the deployed application at the following link: [Inventory Tracker App](https://inventory-tracker-app-725424cf8abe.herokuapp.com)
+The project has been successfully deployed to Heroku. You can access the deployed application at the following link: [Inventory Tracker App](https://inventorytrackerapp-88ababb0ff93.herokuapp.com)
 
 # Version Control (Git)
 The project has been version controlled using Git. Commits have been made at appropriate intervals, and commit messages have been improved to provide descriptive information about each change made.
